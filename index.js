@@ -17,6 +17,7 @@ const PIZZA_PROFILE_URL = 'https://salviospizza.hungerrush.com/Account/Manage';
     try {
         browser = await navigateToPizzaProfile();
         page = (await browser.pages())[0];
+        console.log(browser.wsEndpoint());
         console.log('Running lighthouse...');
         const report = await lighthouse(page.url(), {
             port: (new URL(browser.wsEndpoint())).port,
